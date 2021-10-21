@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,15 @@ namespace CleanArchitectureWorkshop.Application.Exceptions
 {
     public class ValidationException : ApplicationException
     {
-        public List<string> ValidationErrors { get; set; }
+        public List<string> ValdiationErrors { get; set; }
 
+        public ValidationException(ValidationResult validationResult)
+        {
+            ValdiationErrors = new List<string>();
+            foreach (var validationError in validationResult.Errors)
+            {
+                ValdiationErrors.Add(validationError.ErrorMessage);
+            }
+        }
     }
 }
