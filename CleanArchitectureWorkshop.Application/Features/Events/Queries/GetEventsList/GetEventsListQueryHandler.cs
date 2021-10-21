@@ -22,7 +22,7 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEvent
         }
 
 
-        public Task<List<EventsListVm>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
+        public async Task<List<EventsListVm>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
         {
             var allEvents = (await _eventRepository.ListAllAsync()).OrderBy(x => x.Date);
             return _mapper.Map<List<EventsListVm>>(allEvents);

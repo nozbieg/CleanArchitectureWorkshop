@@ -1,19 +1,18 @@
-﻿namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail
+﻿using System;
+
+namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail
 {
     public class EventDetailVm
     {
-        public EventDetailVm()
-        {
-        }
+        public Guid EventId { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public string Artist { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public Guid CategoryId { get; set; }
+        public CategoryDto Category { get; set; }
 
-        //EventId
-        //Name
-        //Price
-        //Artist
-        //Date
-        //Description
-        //ImageUrl
-        //CategoryID
-        //Category
     }
 }

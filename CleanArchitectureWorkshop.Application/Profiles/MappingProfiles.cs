@@ -18,7 +18,7 @@ namespace CleanArchitectureWorkshop.Application.Profiles
         {
             CreateMap<Event, EventsListVm>().ReverseMap();
             CreateMap<Event, EventDetailVm>().ReverseMap();
-            CreateMap<Event, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
 
             CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryEventListVm>().ReverseMap();

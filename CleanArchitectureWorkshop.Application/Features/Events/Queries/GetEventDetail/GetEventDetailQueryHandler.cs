@@ -23,9 +23,14 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEvent
             _categoryRepository = categoryRepository;
         }
 
-        public Task<EventDetailVm> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
+        public async Task<EventDetailVm> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var @event = await _eventRepository.GetByIdAsync(request.EventId);
+            var eventDetailDto = _mapper.Map<EventDetailVm>(@event);
+            var category = _categoryRepository.GetByIdAsync(@event.CategoryId);
+
+            eventDetailDto.Category = _mapper.Map<CategoryDto>(category);
+            return eventDetailDto;
         }
     }
 }
