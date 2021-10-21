@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using CleanArchitectureWorkshop.Application.Features.Categories.Commands.CreateCategory;
 using CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryList;
 using CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryListWithEvents;
 using CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateEvent;
 using CleanArchitectureWorkshop.Application.Features.Events.Commands.DeleteEvent;
+using CleanArchitectureWorkshop.Application.Features.Events.Commands.UpdateEvent;
 using CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail;
 using CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventsList;
 using CleanArchitectureWorkshop.Domain.Entities;
@@ -22,11 +24,18 @@ namespace CleanArchitectureWorkshop.Application.Profiles
             CreateMap<Event, EventDetailVm>().ReverseMap();
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, DeleteEventCommand>().ReverseMap();
+            CreateMap<Event, UpdateEventCommand>().ReverseMap();
+
 
             CreateMap<Category, CategoryDto>().ReverseMap();
-
             CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryEventListVm>().ReverseMap();
+            CreateMap<Category, CreateCategoryDto>();
+            CreateMap<Category, CreateCategoryCommand>();
+
+
+
+
         }
     }
 }

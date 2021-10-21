@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureWorkshop.Application.Features.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommand : IRequest<Guid>
+    public class CreateCategoryCommand : IRequest<CreateCategoryCommandResponse>
     {
+        public string Name { get; set; }
+
     }
 }

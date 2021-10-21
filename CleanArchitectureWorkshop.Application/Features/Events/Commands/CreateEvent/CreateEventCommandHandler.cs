@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using CleanArchitectureWorkshop.Application.Contracts.Infrastructure;
 using CleanArchitectureWorkshop.Application.Contracts.Persistance;
+using CleanArchitectureWorkshop.Application.Models.Mail;
 using CleanArchitectureWorkshop.Domain.Entities;
 using MediatR;
 using System;
@@ -15,6 +17,7 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
     {
         readonly IEventRepository _eventRepository;
         readonly IMapper _mapper;
+        readonly IEmailService _emailService;
 
         public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper)
         {
@@ -34,6 +37,15 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
             }
 
             @event = await _eventRepository.AddAsync(@event);
+            var email = new Email();
+            try
+            {
+                await _emailService.SendEmail(email);
+            }
+            catch
+            {
+
+            }
             return @event.EventId;
         }
     }

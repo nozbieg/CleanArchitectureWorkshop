@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureWorkshop.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureWorkshop.Persistance", "CleanArchitectureWorkshop.Persistance\CleanArchitectureWorkshop.Persistance.csproj", "{0E6A39ED-DBC5-42E1-9094-2648D8642095}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureWorkshop.Infrastructure", "CleanArchitectureWorkshop.Infrastructure\CleanArchitectureWorkshop.Infrastructure.csproj", "{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0E6A39ED-DBC5-42E1-9094-2648D8642095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E6A39ED-DBC5-42E1-9094-2648D8642095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E6A39ED-DBC5-42E1-9094-2648D8642095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{B9963EC5-3809-4C0D-B872-2F7B003A5013} = {05B3A785-7B9A-41A5-AF32-D63DA473E608}
 		{176F5F1C-BA44-4B03-A96F-5BDA01BD6028} = {05B3A785-7B9A-41A5-AF32-D63DA473E608}
 		{0E6A39ED-DBC5-42E1-9094-2648D8642095} = {F211C850-9CFC-40EE-8E09-5D58308B5844}
+		{96771DCA-EF3C-4FE1-A0AD-10A82C1EF9C2} = {F211C850-9CFC-40EE-8E09-5D58308B5844}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EC044B1-1687-482F-8AC1-F620A5041525}
