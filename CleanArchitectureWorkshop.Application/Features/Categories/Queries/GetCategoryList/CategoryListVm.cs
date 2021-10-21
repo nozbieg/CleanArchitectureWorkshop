@@ -1,9 +1,10 @@
-﻿namespace CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryList
+﻿using System;
+
+namespace CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryList
 {
     public class CategoryListVm
     {
-        public CategoryListVm()
-        {
-        }
+        public Guid CategoryId { get; set; }
+        public string Name { get; set; }
     }
 }

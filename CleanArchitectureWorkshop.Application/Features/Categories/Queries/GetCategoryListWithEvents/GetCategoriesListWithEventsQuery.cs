@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CleanArchitectureWorkshop.Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetC
 {
    public  class GetCategoriesListWithEventsQuery : IRequest<List<CategoryEventListVm>>
     {
+        public bool IncludeHistory { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using CleanArchitectureWorkshop.Application.Contracts.Persistance;
+using CleanArchitectureWorkshop.Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +13,13 @@ namespace CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetC
 {
     public class GetCategoryListQueryHandler : IRequestHandler<GetCategoryListQuery, List<CategoryListVm>>
     {
-        public Task<List<CategoryListVm>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
+        readonly IAsyncRepository<Category> _categoryRepository;
+        readonly IMapper _mapper;
+
+        public async Task<List<CategoryListVm>> Handle(GetCategoryListQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var allCategories = await _categoryRepository.ListAllAsync();
+            return _mapper.Map<List<CategoryListVm>>(allCategories);
         }
     }
 }
