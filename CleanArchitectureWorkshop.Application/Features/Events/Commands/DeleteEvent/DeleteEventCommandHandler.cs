@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using CleanArchitectureWorkshop.Application.Contracts.Persistance;
+using CleanArchitectureWorkshop.Application.Exceptions;
+using CleanArchitectureWorkshop.Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +11,22 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.DeleteEvent
 {
-    public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand, Guid>
+    public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand>
     {
-        public Task<Guid> Handle(DeleteEventCommand request, CancellationToken cancellationToken)
+        readonly IAsyncRepository<Event> _eventRepository;
+        public DeleteEventCommandHandler(IAsyncRepository<Event> eventRepository)
         {
-            throw new NotImplementedException();
+            _eventRepository = eventRepository;
+        }
+
+        public async Task<Unit> Handle(DeleteEventCommand request, CancellationToken cancellationToken)
+        {
+            var eventToDelete = await _eventRepository.GetByIdAsync(request.EventId);
+
+            if (eventToDelete is null) throw new NotFoundException(nameof(Event), request.EventId);
+            await _eventRepository.DeleteAsync(eventToDelete);
+
+            return Unit.Value;
         }
     }
 }

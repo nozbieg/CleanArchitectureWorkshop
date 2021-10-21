@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateEvent
+namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.UpdateEvent
 {
-   public  class CreateEventCommand : IRequest<Guid>
+    public class UpdateEventCommand : IRequest
     {
+
         public string Name { get; set; }
         public int Price { get; set; }
         public string Artist { get; set; }
@@ -16,10 +17,10 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
+        public Guid EventId { get; set; }
         public override string ToString()
         {
             return $"Event name: {Name}; Price: {Price}; By: {Artist}; On:{ Date.ToShortDateString()}; Description: { Description}";
         }
-
     }
 }

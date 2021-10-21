@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CleanArchitectureWorkshop.Application.Contracts.Persistance;
+using CleanArchitectureWorkshop.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,11 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
             _eventRepository = eventRepository;
             _mapper = mapper;
         }
-        public Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var @event = _mapper.Map<Event>(request);
+            @event = await _eventRepository.AddAsync(@event);
+            return @event.EventId;
         }
     }
 }

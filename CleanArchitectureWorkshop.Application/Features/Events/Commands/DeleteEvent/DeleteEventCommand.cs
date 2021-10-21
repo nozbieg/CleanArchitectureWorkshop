@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.DeleteEvent
 {
-    public class DeleteEventCommand : IRequest<Guid>
+    public class DeleteEventCommand : IRequest
     {
+        public Guid EventId { get; set; }
     }
 }
