@@ -1,6 +1,6 @@
-﻿using AutoMapper.Configuration;
-using CleanArchitectureWorkshop.Application.Contracts.Infrastructure;
+﻿using CleanArchitectureWorkshop.Application.Contracts.Infrastructure;
 using CleanArchitectureWorkshop.Application.Models.Mail;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +17,7 @@ namespace CleanArchitectureWorkshop.Infrastructure
         {
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
+
             return services;
         }
     }

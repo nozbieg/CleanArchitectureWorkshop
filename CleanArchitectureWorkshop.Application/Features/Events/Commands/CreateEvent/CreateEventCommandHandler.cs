@@ -19,10 +19,11 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
         readonly IMapper _mapper;
         readonly IEmailService _emailService;
 
-        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper)
+        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService)
         {
             _eventRepository = eventRepository;
             _mapper = mapper;
+            _emailService = emailService;
         }
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
@@ -37,12 +38,18 @@ namespace CleanArchitectureWorkshop.Application.Features.Events.Commands.CreateE
             }
 
             @event = await _eventRepository.AddAsync(@event);
-            var email = new Email();
+
+
+            var email = new Email()
+            {
+                To = "gill@snowball.be",
+                Body = $"A new eventwas created: { request}",
+                Subject = "A new event was created" };
             try
             {
                 await _emailService.SendEmail(email);
             }
-            catch
+            catch (Exception ex)
             {
 
             }
