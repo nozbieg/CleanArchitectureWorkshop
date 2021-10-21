@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetails
+﻿namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail
 {
     public class EventDetailVm
     {

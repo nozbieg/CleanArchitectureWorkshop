@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureWorkshop.Application.Features.Events.Queries
+﻿namespace CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail
 {
     public class CategoryDto
     {
