@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryList;
 using CleanArchitectureWorkshop.Application.Features.Categories.Queries.GetCategoryListWithEvents;
 using CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventDetail;
 using CleanArchitectureWorkshop.Application.Features.Events.Queries.GetEventsList;

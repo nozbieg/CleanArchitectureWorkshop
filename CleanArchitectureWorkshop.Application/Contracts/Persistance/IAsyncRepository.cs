@@ -1,4 +1,4 @@
-﻿using DevExpress.Xpo;
+﻿
 using System;
 
 namespace CleanArchitectureWorkshop.Application.Contracts.Persistance
