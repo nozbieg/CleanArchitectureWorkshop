@@ -1,14 +1,19 @@
-﻿using CleanArchitectureWorkshop.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CleanArchitectureWorkshop.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CleanArchitectureWorkshop.Persistance.Configuration
 {
-    public class EventConfiguration : IEntityTypeConfiguration
+    public class EventConfiguration : IEntityTypeConfiguration<Event>
     {
+        public void Configure(EntityTypeBuilder<Event> builder)
+        {
+            builder.Property(e => e.Name)
+            .IsRequired()
+            .HasMaxLength(50);
+
+        }
     }
 }
